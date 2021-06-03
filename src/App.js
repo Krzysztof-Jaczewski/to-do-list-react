@@ -3,7 +3,7 @@ import Tasks from "./Tasks";
 import Section from "./Section";
 import Buttons from "./Buttons";
 import Header from "./Header";
-import React from "react";
+import Main from "./Main";
 
 
 const tasks = [
@@ -17,8 +17,8 @@ function App() {
     <>
       <Header
         title="Lista zadań"
-      />,
-      <main className="main">
+      />
+      <Main>
         <Section
           title={"Dodaj nowe zadanie"}
           body={<Form />}
@@ -28,7 +28,7 @@ function App() {
           body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />}
           extraHeaderContent={<Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />}
         />
-      </main>
+      </Main>
     </>
   );
 }

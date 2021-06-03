@@ -18,9 +18,3 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #eee;
 }
-
-.main {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-gap: 10px;
-}
