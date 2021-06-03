@@ -1,0 +1,31 @@
+.buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+}
+
+@media (max-width: 767px) {
+    .buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+.buttons__button {
+    border: none;
+    background-color: white;
+    color: hsl(180, 100%, 25%);
+    transition: color 0.5s linear;
+}
+
+.buttons__button:disabled {
+    color: #ddd;
+    pointer-events: none;
+}
+
+.buttons__button:hover {
+    color: hsl(180, 100%, 30%);
+}
+
+.buttons__button:active {
+    color: hsl(180, 100%, 35%);
+}
