@@ -8,8 +8,9 @@ import Main from "./Main";
 
 const tasks = [
   { id: 1, content: "zjedz śniadanie", done: true },
-  { id: 2, content: "ucz się", done: true }
-]
+  { id: 2, content: "zjedz obiad", done: true },
+  { id: 3, content: "zjedz kolacje", done: false }
+];
 
 const hideDoneTasks = false;
 function App() {
@@ -31,6 +32,6 @@ function App() {
       </Main>
     </>
   );
-}
+};
 
 export default App;
