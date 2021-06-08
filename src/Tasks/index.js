@@ -14,7 +14,6 @@ const Tasks = ({ tasks, hideDone, removeTask, toggleTaskDone }) => (
         <button
           onClick={() => toggleTaskDone(task.id)}
           className="taskList__button ">
-
           {task.done ? "✔" : ""}
         </button>
         <span className={`taskList__span 
@@ -35,7 +34,7 @@ const Tasks = ({ tasks, hideDone, removeTask, toggleTaskDone }) => (
           🗑
         </button>
       </li>
-    ))}
+    ))};
   </ul>
 );
 

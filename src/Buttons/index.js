@@ -1,7 +1,6 @@
-import "./style.css"
+import "./style.css";
 
 const Buttons = ({ tasks, hideDone, toggleHideDone, finishAllTasks }) => (
-
   <div className="buttons">
     {tasks.length > 0 && (
       <>

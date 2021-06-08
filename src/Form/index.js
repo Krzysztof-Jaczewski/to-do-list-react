@@ -7,7 +7,7 @@ const Form = ({ addNewTask }) => {
 
   const setTextFocus = () => {
     textFocus.current.focus();
-  }
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -34,6 +34,6 @@ const Form = ({ addNewTask }) => {
       </button>
     </form>
   );
-}
+};
 
 export default Form;

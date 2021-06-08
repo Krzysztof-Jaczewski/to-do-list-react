@@ -44,7 +44,7 @@ function App() {
         done: false,
         id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
       }
-    ])
+    ]);
   };
 
   return (
