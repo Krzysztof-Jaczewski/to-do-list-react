@@ -1,4 +1,4 @@
-# TODOList
+# toDoList
 
 
 ## :computer: Demonstration - link below
@@ -15,7 +15,7 @@
 
 
 ## :memo: General
-Basic TO DO list, you can add and remove tasks in easy way, aplication works well on browsers and other devices.
+Basic to do list, you can add and remove tasks in easy way, aplication works well on browsers and other devices.
 ## :pencil2: Input text
 Input text to frame and click on button to add new taks, after this frame will reser and focus on it
 
