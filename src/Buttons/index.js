@@ -1,8 +1,10 @@
 import "./style.css"
 
 const Buttons = ({ tasks, hideDone }) => (
-  tasks.length > 0 && (
+
     <div className="buttons">
+       {tasks.length > 0 && (
+      <>
       <button
         className="buttons__button "
       >
@@ -14,8 +16,9 @@ const Buttons = ({ tasks, hideDone }) => (
       >
         Ukończ wszystkie
       </button>
+      </>
+      )}
     </div>
-  )
 );
 
 
