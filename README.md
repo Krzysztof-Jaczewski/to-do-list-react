@@ -2,7 +2,7 @@
 
 
 ## :computer: Demonstration - link below
-[TODOlist Demonstration](https://krzysztof-jaczewski.github.io/TODOList/)
+[TODOlist Demonstration](https://krzysztof-jaczewski.github.io/toDoList-react/)
 ## :mag: Instruction
 * [General description](#General)
 * [Input text](#Input_text)
