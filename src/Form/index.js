@@ -11,9 +11,8 @@ const Form = ({ addNewTask }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    if (newTaskContent.trim() !== "") {
-      addNewTask(newTaskContent);
-    }
+    if (newTaskContent.trim() === "") return;
+    addNewTask(newTaskContent);
     setNewTaskContent("");
   };
 
