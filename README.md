@@ -1,8 +1,56 @@
-# toDoList
+# TODOList
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## :computer: Demonstration - link below
+[TODOlist Demonstration](https://krzysztof-jaczewski.github.io/TODOList/)
+## :mag: Instruction
+* [General description](#General)
+* [Input text](#Input_text)
+* [Animations](#Animations)
+* [Task list](#Task_list)
+* [Hide done tasks button](#Hide-done-tasks)
+* [Finish all tasks button ](#Finish-all-tasks)
+* [Used technologies](#Used-Technologies)
+* [Scripts](#Available-Scripts)
+
+
+## :memo: General
+Basic TO DO list, you can add and remove tasks in easy way, aplication works well on browsers and other devices.
+## :pencil2: Input text
+Input text to frame and click on button to add new taks, after this frame will reser and focus on it
+
+![logo](%PUBLIC_URL%/readme/Input.gif)
+
+## :seedling: Animations 
+Gentle hover effects and transitions to improve user expirience
+
+![hidebutton](%PUBLIC_URL%/readme/animation.gif)
+## :heavy_check_mark: Task list
+tasks appear in the task list.You can mark completed tasks with green button, then they will be crossed out, or remove them with a red button. looks appropriate with a lot of text even on phones.
+
+![input](%PUBLIC_URL%/readme/taskList.gif)
+## :last_quarter_moon: Hide done tasks
+You can hide tasks that are complited or show them with just one click
+
+![hideButton](%PUBLIC_URL%/readme/hideDoneTasks.gif)
+## :trophy: Finish all tasks
+By clicking this button you can imidietly finish all tasks, and button will be disabled, it will become active again when you add another taks, or mark some task as undone, the buttons will disappear if there are no tasks on list
+
+![hidebutton](%PUBLIC_URL%/readme/allTasksDone.gif)
+## :gear: Used Technologies
+
+* HTML
+* CSS 
+* grid
+* JavaScript
+* BEM
+* GIT
+* Media queries
+* React
+* CreatReactApp
+* Babel
+* WebPack
+## :wrench: Available Scripts
 
 In the project directory, you can run:
 
@@ -34,32 +82,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
