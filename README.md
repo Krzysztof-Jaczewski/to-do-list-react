@@ -50,6 +50,7 @@ By clicking this button you can imidietly finish all tasks, and button will be d
 * CreatReactApp
 * Babel
 * WebPack
+* Hooks
 ## :wrench: Available Scripts
 
 In the project directory, you can run:
