@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Form from "./Form";
-import Tasks from "./Tasks";
-import Section from "./Section";
-import Buttons from "./Buttons";
-import Header from "./Header";
-import Main from "./Main";
+import { Form } from "./components/Form";
+import { Tasks } from "./components/Tasks";
+import { Section } from "./components/Section";
+import { Buttons } from "./components/Buttons";
+import { Header } from "./components/Header";
+import { Main } from "./components/Main";
 
 function App() {
   const [hideDone, setHideDone] = useState(false);

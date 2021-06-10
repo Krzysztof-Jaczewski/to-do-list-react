@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import "./style.css";
 
-const Form = ({ addNewTask }) => {
+export const Form = ({ addNewTask }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
-  const textFocus = useRef();
+  const textFocus = useRef(null);
 
   const setTextFocus = () => {
     textFocus.current.focus();
@@ -35,5 +35,3 @@ const Form = ({ addNewTask }) => {
     </form>
   );
 };
-
-export default Form;
