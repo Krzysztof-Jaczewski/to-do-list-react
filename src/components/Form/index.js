@@ -1,9 +1,20 @@
 import { useRef, useState } from "react";
 import "./style.css";
 
-export const Form = ({ addNewTask }) => {
+export const Form = ({ setTasks }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
   const textFocus = useRef(null);
+
+  const addNewTask = (content) => {
+    setTasks(tasks => [
+      ...tasks,
+      {
+        content,
+        done: false,
+        id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+      }
+    ]);
+  };
 
   const setTextFocus = () => {
     textFocus.current.focus();

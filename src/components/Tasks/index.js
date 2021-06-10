@@ -1,6 +1,23 @@
 import "./style.css";
 
-export const Tasks = ({ tasks, hideDone, removeTask, toggleTaskDone }) => (
+export const Tasks = ({ tasks, hideDone, setTasks}) =>{ 
+  
+  const toggleTaskDone = (id) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id)
+        return {
+          ...task,
+          done: !task.done
+        }
+      return task;
+    }));
+  };
+
+  const removeTask = (id) => {
+    setTasks(tasks => tasks.filter(task => task.id !== id));
+  };
+  
+  return(
   <ul className="taskList">
     {tasks.map(task => (
       <li
@@ -36,4 +53,4 @@ export const Tasks = ({ tasks, hideDone, removeTask, toggleTaskDone }) => (
       </li>
     ))}
   </ul>
-);
+);};
