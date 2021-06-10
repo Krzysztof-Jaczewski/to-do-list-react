@@ -3,15 +3,15 @@
   list-style: none;
   padding: 0;
 }
-
 .taskList__item {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr repeat(2,auto);
   align-items: center;
   grid-gap: 10px;
   padding: 10px;
   border-bottom: 1px solid rgb(218, 218, 218);
 }
+
 
 .taskList__item--hide {
   display: none;
@@ -25,9 +25,19 @@
   text-decoration: line-through;
 }
 
+.taskList__rename{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  grid-gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(218, 218, 218);
+}
+
 .taskList__button {
   width: 30px;
   height: 30px;
+  padding: 0;
   background-color: hsl(120, 100%, 25%);
   cursor: pointer;
   color: white;
@@ -45,7 +55,7 @@
 }
 
 .taskList__button--remove {
-  background-color: rgb(210, 5, 15);
+  background-color: hsl(357, 95%, 40%);
 }
 
 .taskList__button--remove:hover {
@@ -54,5 +64,18 @@
 
 .taskList__button--remove:active {
   background-color: hsl(357, 95%, 55%);
+  outline: 2px solid black;
+}
+
+.taskList__button--rename {
+  background-color: hsl(200, 95%, 40%);
+}
+
+.taskList__button--rename:hover {
+  background-color: hsl(200, 95%, 50%);
+}
+
+.taskList__button--rename:active {
+  background-color: hsl(200, 95%, 55%);
   outline: 2px solid black;
 }
