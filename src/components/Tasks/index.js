@@ -1,4 +1,12 @@
-import {useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ToggleTaskDoneButton } from "./Buttons/ToggleTaskDoneButton"
+import { RenameTaskButton } from "./Buttons/RenameTaskButton"
+import { CancelRenameTaskButton } from "./Buttons/CancelRenameTaskButton";
+import { ConfirmTaskContentChangeButton } from "./Buttons/ConfirmTaskContentChangeButton";
+import { TaskContent } from "./Body/TaskContent";
+import { RemoveTaskButton } from "./Buttons/RemoveTaskButton";
+import { TaskDoneCondition } from "./Body/TaskDoneCondition";
+import { RenameTaskCondition } from "./Body/RenameTaskCondition";
 import "./style.css";
 
 
@@ -6,16 +14,12 @@ export const Tasks = ({ tasks, hideDone, setTasks }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
   const inputFocus = useRef(null);
 
-  const setInputFocus = () => {
-    inputFocus.current.focus();
-  };
-
   useEffect(() => {
     if (inputFocus.current) {
       inputFocus.current.focus();
     }
   });
-  
+
   const toggleTaskDone = (id) => {
     setTasks(tasks => tasks.map(task => {
       if (task.id === id)
@@ -42,7 +46,6 @@ export const Tasks = ({ tasks, hideDone, setTasks }) => {
       return task;
     }));
     setNewTaskContent("");
-    setInputFocus();
   };
 
   const removeTask = (id) => {
@@ -77,7 +80,6 @@ export const Tasks = ({ tasks, hideDone, setTasks }) => {
       console.log(newTaskContent);
       return task;
     }));
-    setInputFocus();
     setNewTaskContent("");
   };
 
@@ -91,96 +93,47 @@ export const Tasks = ({ tasks, hideDone, setTasks }) => {
         <li
           key={task.id}
         >
-          <span className={`
-             taskList__item 
-             ${task.done && hideDone
-              ? "taskList__item--hide"
-              : ""}
-             ${task.rename
-              ? "taskList__item--hide"
-              : ""}`
-            /**
-             * List of Tasks
-            */
-          }>
-
-            <button
-              className="taskList__button "
-              onClick={() => toggleTaskDone(task.id)}
-            >
-              {task.done ? "✔" : ""}
-            </button>
-
-            <span className={`taskList__span 
-                ${task.done
-                ? "taskList__span--done"
-                : ""}`
-            }
-            >
-              {task.content}
-            </span>
-
-            <button
-              onClick={() => renameTask(task.id)}
-              title="edytuj zadanie"
-              className="
-              taskList__button
-              taskList__button--rename
-              "
-            >
-              🖊️
-            </button>
-
-            <button
-              onClick={() => removeTask(task.id)}
-              title="usuń zadanie"
-              className="
-              taskList__button
-              taskList__button--remove
-              "
-            >
-              🗑
-            </button>
-
-          </span>
-
-          <span className={`
-              ${!task.rename
-              ? "taskList__item--hide"
-              : ""}`
-          }
-          /**
-           * Rename Task
-           */
+          <TaskDoneCondition
+            task={task}
+            hideDone={hideDone}
           >
-
+            <ToggleTaskDoneButton
+              toggleTaskDone={toggleTaskDone}
+              task={task}
+            />
+            <TaskContent
+              task={task}
+            />
+            <RenameTaskButton
+              task={task}
+              renameTask={renameTask}
+            />
+            <RemoveTaskButton
+              task={task}
+              removeTask={removeTask}
+            />
+          </TaskDoneCondition>
+          <RenameTaskCondition
+            task={task}
+          >
             <form className="taskList__rename" onSubmit={onFormSubmit}>
               <input
                 value={newTaskContent}
-                ref={element=>{inputFocus.current = element }}
+                ref={element => { inputFocus.current = element }}
                 className="taskList__input" type="text"
                 placeholder=""
                 onChange={({ target }) => setNewTaskContent(target.value)}
               />
-
-              <button
-                type="submit"
-                className="taskList__button"
-                onClick={() => changeTaskContent(task.id)}
-              >
-                ✔
-              </button>
-
-              <button
-                type="button"
-                className="taskList__button taskList__button--remove"
-                onClick={() => cancelRenameTask(task.id)}
-              >
-                X
-              </button>
-
+              <ConfirmTaskContentChangeButton
+                task={task}
+                changeTaskContent={changeTaskContent}
+              />
+              <CancelRenameTaskButton
+                task={task}
+                cancelRenameTask={cancelRenameTask}
+              />
             </form>
-          </span>
+          </RenameTaskCondition>
         </li>
       ))}
     </ul>
