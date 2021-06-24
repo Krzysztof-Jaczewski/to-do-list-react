@@ -1,5 +1,5 @@
 
-export const ToggleTaskDoneButton = ({task,toggleTaskDone}) => (
+export const ToggleTaskDoneButton = ({ task, toggleTaskDone }) => (
     <button
         className="taskList__button "
         onClick={() => toggleTaskDone(task.id)}
