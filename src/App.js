@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "./components/Form";
 import { Tasks } from "./components/Tasks";
 import { Section } from "./components/Section";
@@ -7,8 +7,24 @@ import { Header } from "./components/Header";
 import { Main } from "./components/Main";
 
 function App() {
-  const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [hideDone, setHideDone] = useState(()=>{
+    const localHideDone = localStorage.getItem("hideDone");
+    return localHideDone ? JSON.parse(localHideDone) : []
+  });
+  
+  const [tasks, setTasks] = useState(() => {
+    const localTasks = localStorage.getItem("tasks");
+    return localTasks ? JSON.parse(localTasks) : []
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("hideDone", JSON.stringify(hideDone));
+  }, [hideDone]);
+
 
   return (
     <>
