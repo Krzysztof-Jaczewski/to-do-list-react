@@ -9,9 +9,9 @@ import { Main } from "./components/Main";
 function App() {
   const [hideDone, setHideDone] = useState(()=>{
     const localHideDone = localStorage.getItem("hideDone");
-    return localHideDone ? JSON.parse(localHideDone) : []
+    return localHideDone ? JSON.parse(localHideDone) : false
   });
-  
+
   const [tasks, setTasks] = useState(() => {
     const localTasks = localStorage.getItem("tasks");
     return localTasks ? JSON.parse(localTasks) : []
