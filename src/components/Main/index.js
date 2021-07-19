@@ -1,7 +1,9 @@
-import "./style.css";
+import styled from "styled-components";
 
-export const Main = ({ children }) => (
-    <main className="main">
-        {children}
-    </main>
-);
+const StyledMain = styled.main`
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: 10px;
+`;
+
+export const Main = ({ children }) => <StyledMain>{children}</StyledMain>;
