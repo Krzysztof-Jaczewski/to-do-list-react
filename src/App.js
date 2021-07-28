@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Form } from "./components/Form";
-import { Tasks } from "./components/Tasks";
-import { Section } from "./components/Section";
-import { Buttons } from "./components/Buttons";
+import { Form } from "./components/Main/Section/Form";
+import { Tasks } from "./components/Main/Section/Tasks";
+import { Section } from "./components/Main/Section";
+import { Buttons } from "./components/Main/Section/Buttons";
 import { Header } from "./components/Header";
 import { Main } from "./components/Main";
 import { useTasks } from "./useTasks";
+import { useLocalStorageTasks } from "./useLocalStorageTasks";
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
@@ -13,9 +14,10 @@ function App() {
   const toggleHideDone = () => {
     setHideDone((hideDone) => !hideDone);
   };
+  
+  const [tasks, setTasks] = useLocalStorageTasks();
 
   const {
-    tasks,
     newTaskContent,
     addNewTask,
     toggleTaskDone,
@@ -25,7 +27,7 @@ function App() {
     setNewTaskContent,
     changeTaskContent,
     finishAllTasks,
-  } = useTasks();
+  } = useTasks({tasks,setTasks});
 
   return (
     <>

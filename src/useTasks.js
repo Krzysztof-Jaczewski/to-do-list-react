@@ -1,14 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, } from "react";
 
-export const useTasks = () => {
+export const useTasks = ({tasks, setTasks}) => {
   const [newTaskContent, setNewTaskContent] = useState("");
-  const [tasks, setTasks] = useState(
-    () => JSON.parse(localStorage.getItem("tasks")) || []
-  );
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
 
   const addNewTask = (content) => {
     setTasks((tasks) => [
