@@ -19,7 +19,7 @@ body {
   margin: 0 auto;
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
-  background-color: ${({theme})=>theme.colors.backgroundColor};
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
 }
 
 `;

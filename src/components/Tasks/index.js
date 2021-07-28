@@ -16,7 +16,7 @@ export const Tasks = ({
   const inputFocus = useRef(null);
 
   useEffect(() => {
-      inputFocus.current.focus();
+    inputFocus.current.focus();
   });
 
   const onFormSubmit = (event) => {

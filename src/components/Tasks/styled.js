@@ -57,11 +57,11 @@ export const Button = styled.button`
   transition: background 0.5s linear;
 
   &:hover {
-    filter: ${({theme})=>theme.filter.hover};
+    filter: ${({ theme }) => theme.filter.hover};
   }
 
   &:active {
-    filter: ${({theme})=>theme.filter.active};
+    filter: ${({ theme }) => theme.filter.active};
     outline: 2px solid black;
   }
 
@@ -71,11 +71,11 @@ export const Button = styled.button`
       background-color: hsl(357, 95%, 40%);
 
       &:hover {
-        filter: ${({theme})=>theme.filter.hover};
+        filter: ${({ theme }) => theme.filter.hover};
       }
 
       &:active {
-        filter: ${({theme})=>theme.filter.active};
+        filter: ${({ theme }) => theme.filter.active};
         outline: 2px solid black;
       }
     `}
@@ -86,11 +86,11 @@ export const Button = styled.button`
       background-color: hsl(200, 95%, 40%);
 
       &:hover {
-        filter: ${({theme})=>theme.filter.hover};
+        filter: ${({ theme }) => theme.filter.hover};
       }
 
       &:active {
-        filter: ${({theme})=>theme.filter.active};
+        filter: ${({ theme }) => theme.filter.active};
         outline: 2px solid black;
       }
     `}
