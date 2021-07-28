@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import "./styled";
+
 import { Item, List, ListText, TextRenameForm, Button } from "./styled";
 
 export const Tasks = ({
@@ -13,12 +12,6 @@ export const Tasks = ({
   cancelRenameTask,
   setNewTaskContent,
 }) => {
-  const inputFocus = useRef(null);
-
-  useEffect(() => {
-    inputFocus.current.focus();
-  });
-
   const onFormSubmit = (event) => {
     event.preventDefault();
   };
@@ -50,9 +43,6 @@ export const Tasks = ({
           <TextRenameForm hide={!task.rename} onSubmit={onFormSubmit}>
             <input
               value={newTaskContent}
-              ref={(element) => {
-                inputFocus.current = element;
-              }}
               type="text"
               placeholder=""
               onChange={({ target }) => setNewTaskContent(target.value)}
