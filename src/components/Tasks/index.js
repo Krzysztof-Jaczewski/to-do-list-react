@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { ToggleTaskDoneButton } from "./Buttons/ToggleTaskDoneButton"
-import { RenameTaskButton } from "./Buttons/RenameTaskButton"
-import { CancelRenameTaskButton } from "./Buttons/CancelRenameTaskButton";
-import { ConfirmTaskContentChangeButton } from "./Buttons/ConfirmTaskContentChangeButton";
-import { TaskContent } from "./Body/TaskContent";
-import { RemoveTaskButton } from "./Buttons/RemoveTaskButton";
-import { TaskDoneCondition } from "./Body/TaskDoneCondition";
-import { RenameTaskCondition } from "./Body/RenameTaskCondition";
-import "./style.css";
-
+import "./styled";
+import { Item, List, ListText, TextRenameForm, Button } from "./styled";
 
 export const Tasks = ({ tasks, hideDone, setTasks }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
@@ -21,65 +13,74 @@ export const Tasks = ({ tasks, hideDone, setTasks }) => {
   });
 
   const toggleTaskDone = (id) => {
-    setTasks(tasks => tasks.map(task => {
-      if (task.id === id)
-        return {
-          ...task,
-          done: !task.done
-        }
-      return task;
-    }));
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task.id === id)
+          return {
+            ...task,
+            done: !task.done,
+          };
+        return task;
+      })
+    );
   };
 
   const renameTask = (id) => {
-    setTasks(tasks => tasks.map(task => ({
-      ...task,
-      rename: false,
-    })));
+    setTasks((tasks) =>
+      tasks.map((task) => ({
+        ...task,
+        rename: false,
+      }))
+    );
 
-    setTasks(tasks => tasks.map(task => {
-      if (task.id === id)
-        return {
-          ...task,
-          rename: true,
-        }
-      return task;
-    }));
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task.id === id)
+          return {
+            ...task,
+            rename: true,
+          };
+        return task;
+      })
+    );
     setNewTaskContent("");
   };
 
   const removeTask = (id) => {
-    setTasks(tasks => tasks.filter(task => task.id !== id));
+    setTasks((tasks) => tasks.filter((task) => task.id !== id));
   };
 
   const cancelRenameTask = (id) => {
-    setTasks(tasks => tasks.map(task => {
-      if (task.id === id)
-        return {
-          ...task,
-          rename: false,
-        }
-      return task;
-    }));
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task.id === id)
+          return {
+            ...task,
+            rename: false,
+          };
+        return task;
+      })
+    );
     setNewTaskContent("");
   };
 
   const changeTaskContent = (id) => {
-
     setNewTaskContent(newTaskContent);
 
     if (newTaskContent.trim() === "") return cancelRenameTask(id);
 
-    setTasks(tasks => tasks.map(task => {
-      if (task.id === id)
-        return {
-          ...task,
-          content: newTaskContent,
-          rename: false,
-        }
-      console.log(newTaskContent);
-      return task;
-    }));
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task.id === id)
+          return {
+            ...task,
+            content: newTaskContent,
+            rename: false,
+          };
+        console.log(newTaskContent);
+        return task;
+      })
+    );
     setNewTaskContent("");
   };
 
@@ -88,54 +89,57 @@ export const Tasks = ({ tasks, hideDone, setTasks }) => {
   };
 
   return (
-    <ul className="taskList">
-      {tasks.map(task => (
-        <li
-          key={task.id}
-        >
-          <TaskDoneCondition
-            task={task}
-            hideDone={hideDone}
-          >
-            <ToggleTaskDoneButton
-              toggleTaskDone={toggleTaskDone}
-              task={task}
+    <List>
+      {tasks.map((task) => (
+        <li key={task.id}>
+          <Item hide={(task.done && hideDone) || task.rename}>
+            <Button onClick={() => toggleTaskDone(task.id)}>
+              {task.done ? "✔" : ""}
+            </Button>
+            <ListText done={task.done}>{task.content}</ListText>
+            <Button
+              rename
+              onClick={() => renameTask(task.id)}
+              title="edytuj zadanie"
+            >
+              🖊️
+            </Button>
+            <Button
+              remove
+              onClick={() => removeTask(task.id)}
+              title="usuń zadanie"
+            >
+              🗑
+            </Button>
+          </Item>
+          <TextRenameForm hide={!task.rename} onSubmit={onFormSubmit}>
+            <input
+              value={newTaskContent}
+              ref={(element) => {
+                inputFocus.current = element;
+              }}
+              type="text"
+              placeholder=""
+              onChange={({ target }) => setNewTaskContent(target.value)}
             />
-            <TaskContent
-              task={task}
-            />
-            <RenameTaskButton
-              task={task}
-              renameTask={renameTask}
-            />
-            <RemoveTaskButton
-              task={task}
-              removeTask={removeTask}
-            />
-          </TaskDoneCondition>
-          <RenameTaskCondition
-            task={task}
-          >
-            <form className="taskList__rename" onSubmit={onFormSubmit}>
-              <input
-                value={newTaskContent}
-                ref={element => { inputFocus.current = element }}
-                className="taskList__input" type="text"
-                placeholder=""
-                onChange={({ target }) => setNewTaskContent(target.value)}
-              />
-              <ConfirmTaskContentChangeButton
-                task={task}
-                changeTaskContent={changeTaskContent}
-              />
-              <CancelRenameTaskButton
-                task={task}
-                cancelRenameTask={cancelRenameTask}
-              />
-            </form>
-          </RenameTaskCondition>
+            <Button
+              type="submit"
+              title="Zatwierdź zmianę"
+              onClick={() => changeTaskContent(task.id)}
+            >
+              ✔
+            </Button>
+            <Button
+              remove
+              type="button"
+              title="Anuluj zmianę"
+              onClick={() => cancelRenameTask(task.id)}
+            >
+              X
+            </Button>
+          </TextRenameForm>
         </li>
       ))}
-    </ul>
+    </List>
   );
 };
