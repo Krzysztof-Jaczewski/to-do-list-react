@@ -5,7 +5,7 @@ export const AdditionalButtons = styled.div`
   grid-template-columns: auto auto;
   grid-gap: 20px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.size.mobile}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -22,10 +22,10 @@ export const StyledButton = styled.button`
   }
 
   &:hover {
-    color: hsl(180, 100%, 30%);
+   filter: ${({theme})=>theme.filter.hover};
   }
 
   &:active {
-    color: hsl(180, 100%, 35%);
+   filter: ${({theme})=>theme.filter.active};
   }
 `;

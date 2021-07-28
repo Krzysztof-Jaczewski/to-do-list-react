@@ -7,23 +7,23 @@ export const StyledSection = styled.section`
   box-shadow: 0 0 5px #ddd;
 `;
 
-export const StyledSectionHeader = styled.header`
+export const Header = styled.header`
   display: grid;
   grid-template-columns: 1fr auto;
   padding: 20px;
   grid-gap: 20px;
   background-color: white;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme})=>theme.size.mobile}) {
     grid-template-columns: 1fr;
   }
 `;
 
-export const StyledTitle = styled.h2`
+export const Title = styled.h2`
   background-color: white;
 `;
 
-export const StyledSectionBody = styled.div`
+export const SectionBody = styled.div`
   padding: 20px;
   background-color: white;
 `;

@@ -1,19 +1,11 @@
 import { AdditionalButtons, StyledButton } from "./styled";
 
-export const Buttons = ({ tasks, hideDone, setTasks, setHideDone }) => {
-  const toggleHideDone = () => {
-    setHideDone((hideDone) => !hideDone);
-  };
-
-  const finishAllTasks = () => {
-    setTasks((tasks) =>
-      tasks.map((task) => ({
-        ...task,
-        done: true,
-      }))
-    );
-  };
-
+export const Buttons = ({
+  tasks,
+  hideDone,
+  finishAllTasks,
+  toggleHideDone,
+}) => {
   return (
     <AdditionalButtons>
       {tasks.length > 0 && (

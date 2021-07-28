@@ -1,88 +1,23 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./styled";
 import { Item, List, ListText, TextRenameForm, Button } from "./styled";
 
-export const Tasks = ({ tasks, hideDone, setTasks }) => {
-  const [newTaskContent, setNewTaskContent] = useState("");
+export const Tasks = ({
+  tasks,
+  hideDone,
+  newTaskContent,
+  toggleTaskDone,
+  renameTask,
+  removeTask,
+  changeTaskContent,
+  cancelRenameTask,
+  setNewTaskContent,
+}) => {
   const inputFocus = useRef(null);
 
   useEffect(() => {
-    if (inputFocus.current) {
       inputFocus.current.focus();
-    }
   });
-
-  const toggleTaskDone = (id) => {
-    setTasks((tasks) =>
-      tasks.map((task) => {
-        if (task.id === id)
-          return {
-            ...task,
-            done: !task.done,
-          };
-        return task;
-      })
-    );
-  };
-
-  const renameTask = (id) => {
-    setTasks((tasks) =>
-      tasks.map((task) => ({
-        ...task,
-        rename: false,
-      }))
-    );
-
-    setTasks((tasks) =>
-      tasks.map((task) => {
-        if (task.id === id)
-          return {
-            ...task,
-            rename: true,
-          };
-        return task;
-      })
-    );
-    setNewTaskContent("");
-  };
-
-  const removeTask = (id) => {
-    setTasks((tasks) => tasks.filter((task) => task.id !== id));
-  };
-
-  const cancelRenameTask = (id) => {
-    setTasks((tasks) =>
-      tasks.map((task) => {
-        if (task.id === id)
-          return {
-            ...task,
-            rename: false,
-          };
-        return task;
-      })
-    );
-    setNewTaskContent("");
-  };
-
-  const changeTaskContent = (id) => {
-    setNewTaskContent(newTaskContent);
-
-    if (newTaskContent.trim() === "") return cancelRenameTask(id);
-
-    setTasks((tasks) =>
-      tasks.map((task) => {
-        if (task.id === id)
-          return {
-            ...task,
-            content: newTaskContent,
-            rename: false,
-          };
-        console.log(newTaskContent);
-        return task;
-      })
-    );
-    setNewTaskContent("");
-  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
