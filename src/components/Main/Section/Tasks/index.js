@@ -1,21 +1,17 @@
-
-import { Item, List, ListText, TextRenameForm, Button } from "./styled";
+import { TaskRename } from "./TaskRename/Index";
+import { Item, List, ListText, Button } from "./styled";
 
 export const Tasks = ({
   tasks,
-  hideDone,
   newTaskContent,
+  hideDone,
+  cancelRenameTask,
   toggleTaskDone,
+  changeTaskContent,
+  setNewTaskContent,
   renameTask,
   removeTask,
-  changeTaskContent,
-  cancelRenameTask,
-  setNewTaskContent,
 }) => {
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-  };
-
   return (
     <List>
       {tasks.map((task) => (
@@ -40,29 +36,13 @@ export const Tasks = ({
               🗑
             </Button>
           </Item>
-          <TextRenameForm hide={!task.rename} onSubmit={onFormSubmit}>
-            <input
-              value={newTaskContent}
-              type="text"
-              placeholder=""
-              onChange={({ target }) => setNewTaskContent(target.value)}
-            />
-            <Button
-              type="submit"
-              title="Zatwierdź zmianę"
-              onClick={() => changeTaskContent(task.id)}
-            >
-              ✔
-            </Button>
-            <Button
-              remove
-              type="button"
-              title="Anuluj zmianę"
-              onClick={() => cancelRenameTask(task.id)}
-            >
-              X
-            </Button>
-          </TextRenameForm>
+          <TaskRename
+            task={task}
+            newTaskContent={newTaskContent}
+            cancelRenameTask={cancelRenameTask}
+            changeTaskContent={changeTaskContent}
+            setNewTaskContent={setNewTaskContent}
+          />
         </li>
       ))}
     </List>
