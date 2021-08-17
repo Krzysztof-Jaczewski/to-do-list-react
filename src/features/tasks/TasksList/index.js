@@ -1,7 +1,7 @@
-import { TaskRename } from "./TaskRename/Index";
+import { TaskRename } from "../TaskRename/Index";
 import { Item, List, ListText, Button } from "./styled";
 
-export const Tasks = ({
+export const TasksList = ({
   tasks,
   newTaskContent,
   hideDone,

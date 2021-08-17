@@ -1,20 +1,20 @@
 import { useState } from "react";
-import { Form } from "./components/Main/Section/Form";
-import { Tasks } from "./components/Main/Section/Tasks";
-import { Section } from "./components/Main/Section";
-import { Buttons } from "./components/Main/Section/Buttons";
-import { Header } from "./components/Header";
-import { Main } from "./components/Main";
-import { useTasks } from "./useTasks";
-import { useLocalStorageTasks } from "./useLocalStorageTasks";
+import { Form } from "./Form";
+import { TasksList } from "./TasksList";
+import { Section } from "../../common/Section";
+import { Buttons } from "./Buttons";
+import { Header } from "../../common/Header";
+import { Main } from "../../common/Main";
+import { useTasks } from "../../useTasks";
+import { useLocalStorageTasks } from "../../useLocalStorageTasks";
 
-function App() {
+function Tasks() {
   const [hideDone, setHideDone] = useState(false);
 
   const toggleHideDone = () => {
     setHideDone((hideDone) => !hideDone);
   };
-  
+
   const [tasks, setTasks] = useLocalStorageTasks();
 
   const {
@@ -27,7 +27,7 @@ function App() {
     setNewTaskContent,
     changeTaskContent,
     finishAllTasks,
-  } = useTasks({tasks,setTasks});
+  } = useTasks({ tasks, setTasks });
 
   return (
     <>
@@ -48,7 +48,7 @@ function App() {
             />
           }
           body={
-            <Tasks
+            <TasksList
               tasks={tasks}
               newTaskContent={newTaskContent}
               hideDone={hideDone}
@@ -66,4 +66,4 @@ function App() {
   );
 }
 
-export default App;
+export default Tasks;

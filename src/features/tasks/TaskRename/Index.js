@@ -1,5 +1,5 @@
 import { TextRenameForm } from "./styled";
-import { Button } from "../styled";
+import { Button } from "../TasksList/styled";
 
 export const TaskRename = ({
   task,
