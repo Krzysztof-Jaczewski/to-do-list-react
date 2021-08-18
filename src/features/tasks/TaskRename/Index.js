@@ -1,15 +1,17 @@
+import { useState } from "react";
 import { TextRenameForm } from "./styled";
 import { Button } from "../TasksList/styled";
+import { useDispatch } from "react-redux";
+import { cancelRenameTask, acceptRenameTask } from "../TasksSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
-export const TaskRename = ({
-  task,
-  changeTaskContent,
-  cancelRenameTask,
-  setNewTaskContent,
-  newTaskContent,
-}) => {
+export const TaskRename = ({ task }) => {
+  const [newTaskContent, setNewTaskContent] = useState("");
+  const dispatch = useDispatch();
+
   const onFormSubmit = (event) => {
     event.preventDefault();
+    setNewTaskContent("");
   };
 
   return (
@@ -23,7 +25,16 @@ export const TaskRename = ({
       <Button
         type="submit"
         title="Zatwierdź zmianę"
-        onClick={() => changeTaskContent(task.id)}
+        onClick={() =>
+          dispatch(
+            acceptRenameTask({
+              content: newTaskContent,
+              done: false,
+              rename: false,
+              id: nanoid(),
+            })
+          )
+        }
       >
         ✔
       </Button>
@@ -31,7 +42,7 @@ export const TaskRename = ({
         remove
         type="button"
         title="Anuluj zmianę"
-        onClick={() => cancelRenameTask(task.id)}
+        onClick={() => dispatch(cancelRenameTask(task.id))}
       >
         X
       </Button>

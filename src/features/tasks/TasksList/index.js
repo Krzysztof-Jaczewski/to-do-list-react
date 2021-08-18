@@ -1,48 +1,42 @@
 import { TaskRename } from "../TaskRename/Index";
 import { Item, List, ListText, Button } from "./styled";
-
-export const TasksList = ({
-  tasks,
-  newTaskContent,
-  hideDone,
-  cancelRenameTask,
+import {
+  selectTasks,
   toggleTaskDone,
-  changeTaskContent,
-  setNewTaskContent,
-  renameTask,
   removeTask,
-}) => {
+  renameTask,
+} from "../TasksSlice";
+import { useSelector, useDispatch } from "react-redux";
+
+export const TasksList = () => {
+  const { tasks, hideDone } = useSelector(selectTasks);
+  const dispatch = useDispatch();
+
   return (
     <List>
       {tasks.map((task) => (
         <li key={task.id}>
           <Item hide={(task.done && hideDone) || task.rename}>
-            <Button onClick={() => toggleTaskDone(task.id)}>
+            <Button onClick={() => dispatch(toggleTaskDone(task.id))}>
               {task.done ? "✔" : ""}
             </Button>
             <ListText done={task.done}>{task.content}</ListText>
             <Button
               rename
-              onClick={() => renameTask(task.id)}
+              onClick={() => dispatch(renameTask(task.id))}
               title="edytuj zadanie"
             >
               🖊️
             </Button>
             <Button
               remove
-              onClick={() => removeTask(task.id)}
+              onClick={() => dispatch(removeTask(task.id))}
               title="usuń zadanie"
             >
               🗑
             </Button>
           </Item>
-          <TaskRename
-            task={task}
-            newTaskContent={newTaskContent}
-            cancelRenameTask={cancelRenameTask}
-            changeTaskContent={changeTaskContent}
-            setNewTaskContent={setNewTaskContent}
-          />
+          <TaskRename task={task} />
         </li>
       ))}
     </List>
