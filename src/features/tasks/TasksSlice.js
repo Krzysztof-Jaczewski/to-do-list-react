@@ -10,8 +10,8 @@ const tasksSlice = createSlice({
     addTask: ({ tasks }, { payload }) => {
       tasks.push(payload);
     },
-    toggleTaskDone: ({ tasks }, { payload }) => {
-      const index = tasks.findIndex(({ id }) => id === payload);
+    toggleTaskDone: ({ tasks }, { payload: selectedTaskId }) => {
+      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
       tasks[index].done = !tasks[index].done;
     },
     setAllTasksDone: ({ tasks }) => {
@@ -19,20 +19,20 @@ const tasksSlice = createSlice({
         task.done = true;
       });
     },
-    removeTask: ({ tasks }, { payload }) => {
-      const index = tasks.findIndex(({ id }) => id === payload);
+    removeTask: ({ tasks }, { payload: selectedTaskId }) => {
+      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
       tasks.splice(index, 1);
     },
-    renameTask: ({ tasks }, { payload }) => {
-      const index = tasks.findIndex(({ id }) => id === payload);
+    renameTask: ({ tasks }, { payload: selectedTaskId }) => {
+      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
       tasks.forEach((task) => {
         task.rename = false;
       });
       tasks[index].rename = true;
       tasks[index].done = false;
     },
-    cancelRenameTask: ({ tasks }, { payload }) => {
-      const index = tasks.findIndex(({ id }) => id === payload);
+    cancelRenameTask: ({ tasks }, { payload: selectedTaskId }) => {
+      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
       tasks[index].rename = false;
     },
     acceptRenameTask: ({ tasks }, { payload }) => {
