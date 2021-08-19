@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextRenameForm } from "./styled";
 import { Button } from "../TasksList/styled";
 import { useDispatch } from "react-redux";
-import { cancelRenameTask, acceptRenameTask } from "../TasksSlice";
+import { cancelRenameTask, acceptRenameTask } from "../tasksSlice";
 
 export const TaskRename = ({ task }) => {
   const [newTaskContent, setNewTaskContent] = useState("");

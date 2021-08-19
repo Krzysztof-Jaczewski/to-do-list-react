@@ -5,7 +5,7 @@ import {
   toggleTaskDone,
   removeTask,
   renameTask,
-} from "../TasksSlice";
+} from "../tasksSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 export const TasksList = () => {
