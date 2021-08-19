@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Tasks from "./features/tasks/Tasks";
+import { Tasks } from "./features/tasks/Tasks";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import { theme } from "./theme";

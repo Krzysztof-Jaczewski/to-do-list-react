@@ -5,7 +5,7 @@ import { Buttons } from "./Buttons";
 import { Header } from "../../common/Header";
 import { Main } from "../../common/Main";
 
-function Tasks() {
+export const Tasks = () => {
   return (
     <>
       <Header title="Lista zadań" />
@@ -19,6 +19,4 @@ function Tasks() {
       </Main>
     </>
   );
-}
-
-export default Tasks;
+};
