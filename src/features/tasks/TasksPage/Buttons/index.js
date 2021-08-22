@@ -1,9 +1,9 @@
 import {
   AdditionalButtons,
   StyledButton,
-} from "../../../common/Section/styled";
+} from "../../../../common/Section/styled";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTasks, toggleHideDone, setAllTasksDone } from "../tasksSlice";
+import { selectTasks, toggleHideDone, setAllTasksDone } from "../../tasksSlice";
 
 export const Buttons = () => {
   const { tasks, hideDone } = useSelector(selectTasks);

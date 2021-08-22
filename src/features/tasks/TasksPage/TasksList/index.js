@@ -5,8 +5,9 @@ import {
   toggleTaskDone,
   removeTask,
   renameTask,
-} from "../tasksSlice";
+} from "../../tasksSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const TasksList = () => {
   const { tasks, hideDone } = useSelector(selectTasks);
@@ -20,7 +21,9 @@ export const TasksList = () => {
             <ListButton onClick={() => dispatch(toggleTaskDone(task.id))}>
               {task.done ? "✔" : ""}
             </ListButton>
-            <ListText done={task.done}>{task.content}</ListText>
+            <ListText done={task.done}>
+              <Link to={`/zadania/${task.id}`}> {task.content}</Link>
+            </ListText>
             <ListButton
               rename
               onClick={() => dispatch(renameTask(task.id))}

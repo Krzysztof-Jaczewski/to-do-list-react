@@ -1,9 +1,9 @@
+import { useDispatch } from "react-redux";
 import {
   AdditionalButtons,
   StyledButton,
-} from "../../../common/Section/styled";
-import { useDispatch } from "react-redux";
-import { axiosExampleTasks } from "../tasksSlice";
+} from "../../../../common/Section/styled";
+import { axiosExampleTasks } from "../../tasksSlice";
 
 export const ExampleButton = () => {
   const dispatch = useDispatch();

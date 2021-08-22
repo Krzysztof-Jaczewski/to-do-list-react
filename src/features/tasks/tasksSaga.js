@@ -25,7 +25,6 @@ function* saveTasksInLocalStorageSaga() {
 }
 
 export function* tasksSaga() {
-
   yield takeLatest(axiosExampleTasks.type, axiosExampleTasksSaga);
   yield takeEvery("*", saveTasksInLocalStorageSaga);
 }
