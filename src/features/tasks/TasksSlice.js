@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getTasksFromLocalStorage } from "./tasksLocalStorage";
 
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
-    tasks: [],
+    tasks: getTasksFromLocalStorage(),
     hideDone: false,
   },
   reducers: {
@@ -35,12 +36,16 @@ const tasksSlice = createSlice({
       const index = tasks.findIndex(({ id }) => id === selectedTaskId);
       tasks[index].rename = false;
     },
-    acceptRenameTask: ({ tasks }, { payload }) => {
-      const index = tasks.findIndex(({ id }) => id === payload.id);
-      tasks.splice(index, 1, payload);
+    acceptRenameTask: ({ tasks }, { payload: renamedTask }) => {
+      const index = tasks.findIndex(({ id }) => id === renamedTask.id);
+      tasks.splice(index, 1, renamedTask);
     },
     toggleHideDone: (state) => {
       state.hideDone = !state.hideDone;
+    },
+    axiosExampleTasks: () => {},
+    setTasks: (state, { payload: exampleTasks }) => {
+      state.tasks = exampleTasks;
     },
   },
 });
@@ -54,6 +59,8 @@ export const {
   renameTask,
   cancelRenameTask,
   acceptRenameTask,
+  axiosExampleTasks,
+  setTasks,
 } = tasksSlice.actions;
-export const selectTasks = (state) => state.tasks;
+export const selectTasks = ({ tasks }) => tasks;
 export default tasksSlice.reducer;
