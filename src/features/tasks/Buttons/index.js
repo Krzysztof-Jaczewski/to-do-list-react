@@ -1,4 +1,7 @@
-import { AdditionalButtons, StyledButton } from "./styled";
+import {
+  AdditionalButtons,
+  StyledButton,
+} from "../../../common/Section/styled";
 import { useSelector, useDispatch } from "react-redux";
 import { selectTasks, toggleHideDone, setAllTasksDone } from "../tasksSlice";
 
