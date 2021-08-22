@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Tasks } from "./features/tasks/Tasks";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import { theme } from "./theme";
 import { GlobalStyle } from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Tasks />
+        <App />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
