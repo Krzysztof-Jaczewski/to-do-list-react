@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { TextRenameForm } from "./styled";
-import { Button } from "../TasksList/styled";
+import { ListButton } from "../styled";
 import { useDispatch } from "react-redux";
-import { cancelRenameTask, acceptRenameTask } from "../tasksSlice";
+import { cancelRenameTask, acceptRenameTask } from "../../tasksSlice";
 
 export const TaskRename = ({ task }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
@@ -21,7 +21,7 @@ export const TaskRename = ({ task }) => {
         placeholder=""
         onChange={({ target }) => setNewTaskContent(target.value)}
       />
-      <Button
+      <ListButton
         type="submit"
         title="Zatwierdź zmianę"
         onClick={() => {
@@ -38,15 +38,15 @@ export const TaskRename = ({ task }) => {
         }}
       >
         ✔
-      </Button>
-      <Button
+      </ListButton>
+      <ListButton
         remove
         type="button"
         title="Anuluj zmianę"
         onClick={() => dispatch(cancelRenameTask(task.id))}
       >
         X
-      </Button>
+      </ListButton>
     </TextRenameForm>
   );
 };

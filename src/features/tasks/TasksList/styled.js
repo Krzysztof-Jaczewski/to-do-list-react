@@ -46,7 +46,7 @@ export const TextRenameForm = styled.form`
     `}
 `;
 
-export const Button = styled.button`
+export const ListButton = styled.button`
   width: 30px;
   height: 30px;
   padding: 0;
