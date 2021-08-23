@@ -27,14 +27,14 @@ const tasksSlice = createSlice({
     renameTask: ({ tasks }, { payload: selectedTaskId }) => {
       const index = tasks.findIndex(({ id }) => id === selectedTaskId);
       tasks.forEach((task) => {
-        task.rename = false;
+        task.curentlyRename = false;
       });
-      tasks[index].rename = true;
+      tasks[index].curentlyRename = true;
       tasks[index].done = false;
     },
     cancelRenameTask: ({ tasks }, { payload: selectedTaskId }) => {
       const index = tasks.findIndex(({ id }) => id === selectedTaskId);
-      tasks[index].rename = false;
+      tasks[index].curentlyRename = false;
     },
     acceptRenameTask: ({ tasks }, { payload: renamedTask }) => {
       const index = tasks.findIndex(({ id }) => id === renamedTask.id);
@@ -62,5 +62,25 @@ export const {
   axiosExampleTasks,
   setTasks,
 } = tasksSlice.actions;
-export const selectTasks = ({ tasks }) => tasks;
+export const selectTasksState = (state) => state.tasks;
+
+export const selectTasks = (state) => selectTasksState(state).tasks;
+export const selectHideDone = (state) => selectTasksState(state).hideDone;
+export const selectIsEveryTaskDone = (state) =>
+  selectTasks(state).every(({ done }) => done);
+export const selectAreTasksEmpty = (state) => selectTasks(state).length === 0;
+
+export const getTasksById = (state, taskId) =>
+  selectTasks(state).find(({ id }) => id === taskId);
+
+export const selectTasksByQuery = (state, query) => {
+  const tasks = selectTasks(state);
+  if (!query || query.trim() === "") {
+    return tasks;
+  }
+  return tasks.filter(({ content }) =>
+    content.toUpperCase().includes(query.trim().toUpperCase())
+  );
+};
+
 export default tasksSlice.reducer;

@@ -3,6 +3,7 @@ import { TextRenameForm } from "./styled";
 import { ListButton } from "../styled";
 import { useDispatch } from "react-redux";
 import { cancelRenameTask, acceptRenameTask } from "../../../tasksSlice";
+import { Input } from "../../../../../common/Input";
 
 export const TaskRename = ({ task }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
@@ -14,8 +15,8 @@ export const TaskRename = ({ task }) => {
   };
 
   return (
-    <TextRenameForm hide={!task.rename} onSubmit={onFormSubmit}>
-      <input
+    <TextRenameForm hide={!task.curentlyRename} onSubmit={onFormSubmit}>
+      <Input
         value={newTaskContent}
         type="text"
         placeholder=""
@@ -31,7 +32,7 @@ export const TaskRename = ({ task }) => {
               acceptRenameTask({
                 content: newTaskContent,
                 done: false,
-                rename: false,
+                curentlyRename: false,
                 id: task.id,
               })
             );

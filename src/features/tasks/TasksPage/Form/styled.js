@@ -10,12 +10,6 @@ export const StyledForm = styled.form`
   }
 `;
 
-export const TextInput = styled.input`
-  padding: 10px;
-  background-color: white;
-  border: 1px solid rgb(220, 220, 220);
-`;
-
 export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.mainColor};
   color: rgb(230, 230, 230);
@@ -25,7 +19,6 @@ export const Button = styled.button`
 
   &:hover {
     filter: ${({ theme }) => theme.filter.hover};
-    transform: scale(1.1);
   }
 
   &:active {

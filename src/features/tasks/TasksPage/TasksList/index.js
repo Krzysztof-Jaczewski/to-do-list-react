@@ -1,28 +1,36 @@
 import { TaskRename } from "./TaskRename/Index";
-import { Item, List, ListText, ListButton } from "./styled";
+import { Item, List, ListText, ListButton, StyledLink } from "./styled";
 import {
-  selectTasks,
   toggleTaskDone,
   removeTask,
   renameTask,
+  selectHideDone,
+  selectTasksByQuery,
 } from "../../tasksSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useQueryParameter } from "../../queryParameters";
+import { searchQueryParameter } from "../../searchQueryParameter";
 
 export const TasksList = () => {
-  const { tasks, hideDone } = useSelector(selectTasks);
+  const query = useQueryParameter(searchQueryParameter);
+  const tasks = useSelector((state) => selectTasksByQuery(state, query));
+  const hideDone = useSelector(selectHideDone);
+
   const dispatch = useDispatch();
 
   return (
     <List>
       {tasks.map((task) => (
         <li key={task.id}>
-          <Item hide={(task.done && hideDone) || task.rename}>
+          <Item hide={(task.done && hideDone) || task.curentlyRename}>
             <ListButton onClick={() => dispatch(toggleTaskDone(task.id))}>
               {task.done ? "✔" : ""}
             </ListButton>
             <ListText done={task.done}>
-              <Link to={`/zadania/${task.id}`}> {task.content}</Link>
+              <StyledLink to={`/zadania/${task.id}`}>
+                {" "}
+                {task.content}
+              </StyledLink>
             </ListText>
             <ListButton
               rename
