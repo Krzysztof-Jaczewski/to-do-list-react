@@ -6,6 +6,7 @@ const tasksSlice = createSlice({
   initialState: {
     tasks: getTasksFromLocalStorage(),
     hideDone: false,
+    loading: false,
   },
   reducers: {
     addTask: ({ tasks }, { payload }) => {
@@ -27,14 +28,14 @@ const tasksSlice = createSlice({
     renameTask: ({ tasks }, { payload: selectedTaskId }) => {
       const index = tasks.findIndex(({ id }) => id === selectedTaskId);
       tasks.forEach((task) => {
-        task.curentlyRename = false;
+        task.currentlyRename = false;
       });
-      tasks[index].curentlyRename = true;
+      tasks[index].currentlyRename = true;
       tasks[index].done = false;
     },
     cancelRenameTask: ({ tasks }, { payload: selectedTaskId }) => {
       const index = tasks.findIndex(({ id }) => id === selectedTaskId);
-      tasks[index].curentlyRename = false;
+      tasks[index].currentlyRename = false;
     },
     acceptRenameTask: ({ tasks }, { payload: renamedTask }) => {
       const index = tasks.findIndex(({ id }) => id === renamedTask.id);
@@ -43,9 +44,15 @@ const tasksSlice = createSlice({
     toggleHideDone: (state) => {
       state.hideDone = !state.hideDone;
     },
-    axiosExampleTasks: () => {},
-    setTasks: (state, { payload: exampleTasks }) => {
+    axiosExampleTasks: (state) => {
+      state.loading = true;
+    },
+    axiosExampleTasksSuccess: (state, { payload: exampleTasks }) => {
       state.tasks = exampleTasks;
+      state.loading = false;
+    },
+    axiosExampleTasksError: (state) => {
+      state.loading = false;
     },
   },
 });
@@ -60,12 +67,14 @@ export const {
   cancelRenameTask,
   acceptRenameTask,
   axiosExampleTasks,
-  setTasks,
+  axiosExampleTasksSuccess,
+  axiosExampleTasksError,
 } = tasksSlice.actions;
 export const selectTasksState = (state) => state.tasks;
 
 export const selectTasks = (state) => selectTasksState(state).tasks;
 export const selectHideDone = (state) => selectTasksState(state).hideDone;
+export const selectLoading = (state) => selectTasksState(state).loading;
 export const selectIsEveryTaskDone = (state) =>
   selectTasks(state).every(({ done }) => done);
 export const selectAreTasksEmpty = (state) => selectTasks(state).length === 0;

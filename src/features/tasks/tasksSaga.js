@@ -1,27 +1,34 @@
 import {
   call,
   put,
+  delay,
   select,
   takeEvery,
   takeLatest,
 } from "@redux-saga/core/effects";
 import { getExampleTasks } from "./getExampleTasks";
 import { saveTasksInLocalStorage } from "./tasksLocalStorage";
-import { axiosExampleTasks, selectTasks, setTasks } from "./tasksSlice";
+import {
+  axiosExampleTasks,
+  axiosExampleTasksError,
+  axiosExampleTasksSuccess,
+  selectTasks,
+} from "./tasksSlice";
 
 function* axiosExampleTasksSaga() {
   try {
+    yield delay(2000);
     const exampleTasks = yield call(getExampleTasks);
-    yield put(setTasks(exampleTasks));
+    yield put(axiosExampleTasksSuccess(exampleTasks));
   } catch (error) {
+    yield put(axiosExampleTasksError());
     yield call(alert, "coś poszło nie tak!");
   }
 }
 
 function* saveTasksInLocalStorageSaga() {
   const tasks = yield select(selectTasks);
-  console.log(tasks.tasks);
-  yield call(saveTasksInLocalStorage, tasks.tasks);
+  yield call(saveTasksInLocalStorage, tasks);
 }
 
 export function* tasksSaga() {
