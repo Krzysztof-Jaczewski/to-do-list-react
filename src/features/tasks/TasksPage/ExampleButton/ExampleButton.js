@@ -1,8 +1,5 @@
 import { useDispatch } from "react-redux";
-import {
-  AdditionalButtons,
-  StyledButton,
-} from "../../../../common/Section/styled";
+import { AdditionalButtons, Button } from "../../../../common/Button";
 import { axiosExampleTasks } from "../../tasksSlice";
 
 export const ExampleButton = () => {
@@ -10,9 +7,9 @@ export const ExampleButton = () => {
 
   return (
     <AdditionalButtons>
-      <StyledButton onClick={() => dispatch(axiosExampleTasks())}>
+      <Button onClick={() => dispatch(axiosExampleTasks())}>
         pokaż przykładowe zadania
-      </StyledButton>
+      </Button>
     </AdditionalButtons>
   );
 };
