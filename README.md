@@ -19,24 +19,24 @@ Basic to do list, you can add and remove tasks in easy way, aplication works wel
 ## :pencil2: Input text
 Input text to frame and click on button to add new taks, after this frame will reser and focus on it
 
-![logo](public/readme/Input.gif)
+![logo](src/readme/Input.gif)
 
 ## :seedling: Animations 
 Gentle hover effects and transitions to improve user expirience
 
-![hidebutton](public/readme/animation.gif)
+![hidebutton](src/readme/animation.gif)
 ## :heavy_check_mark: Task list
 tasks appear in the task list.You can mark completed tasks with green button, then they will be crossed out, or remove them with a red button. looks appropriate with a lot of text even on phones.
 
-![input](public/readme/taskList.gif)
+![input](src/readme/taskList.gif)
 ## :last_quarter_moon: Hide done tasks
 You can hide tasks that are complited or show them with just one click
 
-![hideButton](public/readme/hideDoneTasks.gif)
+![hideButton](src/readme/hideDoneTasks.gif)
 ## :trophy: Finish all tasks
 By clicking this button you can imidietly finish all tasks, and button will be disabled, it will become active again when you add another taks, or mark some task as undone, the buttons will disappear if there are no tasks on list
 
-![hideAllTasksbutton](public/readme/allTasksDone.gif)
+![hideAllTasksbutton](src/readme/allTasksDone.gif)
 ## :gear: Used Technologies
 
 * HTML
