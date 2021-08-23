@@ -1,5 +1,5 @@
-import { TaskRename } from "./TaskRename/Index";
-import { Item, List, ListText, ListButton, StyledLink } from "./styled";
+import { TaskRename } from "../TaskRename/Index";
+import { Item, List, ListText, StyledLink } from "./styled";
 import {
   toggleTaskDone,
   removeTask,
@@ -10,6 +10,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { useQueryParameter } from "../../queryParameters";
 import { searchQueryParameter } from "../../searchQueryParameter";
+import { toTask } from "../../../../rutes";
+import { ListButton } from "../TasksListButtons";
 
 export const TasksList = () => {
   const query = useQueryParameter(searchQueryParameter);
@@ -22,13 +24,12 @@ export const TasksList = () => {
     <List>
       {tasks.map((task) => (
         <li key={task.id}>
-          <Item hide={(task.done && hideDone) || task.curentlyRename}>
+          <Item hide={(task.done && hideDone) || task.currentlyRename}>
             <ListButton onClick={() => dispatch(toggleTaskDone(task.id))}>
               {task.done ? "✔" : ""}
             </ListButton>
             <ListText done={task.done}>
-              <StyledLink to={`/zadania/${task.id}`}>
-                {" "}
+              <StyledLink to={toTask({ id: task.id })}>
                 {task.content}
               </StyledLink>
             </ListText>
