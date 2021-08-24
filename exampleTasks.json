@@ -1,20 +1,20 @@
 [
   {
-    "content": "Oznaczyć to zadanie jako ukończone",
+    "content": "Zmień tekst tego zadania",
     "done": false,
-    "rename": false,
+    "currentlyRename": false,
     "id": "Q7G_IRpq_kK1xz3at7JpB"
   },
   {
-    "content": "Ukończyć wszystkie zadania",
+    "content": "Użyj filtra do przeszukiwania zadań",
     "done": false,
-    "rename": false,
+    "currentlyRename": false,
     "id": "5B-tPUfoC272lXVLaA0hT"
   },
   {
-    "content": "Zmień tekst tego zadania",
+    "content": "Odwiedź stronę autora",
     "done": false,
-    "rename": false,
+    "currentlyRename": false,
     "id": "5B-tPUfoC272lXVLaA0h2"
   }
 ]
