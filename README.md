@@ -75,21 +75,23 @@ Tasks are storage in localStorage in browser so they don`t disapear even when yo
 
 - HTML
 - CSS
-- grid
+- Styled-components
+- Grid
 - JavaScript
 - BEM
 - GIT / githubPages
 - Media queries
+- Creat-react-app
 - React / React Router
-- Redux
-- Saga
+- React - Redux / Toolkit
+- Redux - Saga
+- Immutability / Immer
 - Axios
 - Async/await
-- CreatReactApp
 - Babel
 - WebPack
 - JSX
-- Hooks / OwnHooks
+- Hooks / customHooks
 - ThemeProvider
 - JSON
 - LocalStorage
