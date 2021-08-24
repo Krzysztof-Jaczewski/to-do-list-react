@@ -34,8 +34,8 @@ export const ListButton = styled.button`
       }
     `}
 
-  ${({ rename }) =>
-    rename &&
+  ${({ currentlyRename }) =>
+    currentlyRename &&
     css`
       background-color: hsl(200, 95%, 40%);
 

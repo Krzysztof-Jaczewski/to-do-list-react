@@ -34,7 +34,7 @@ export const TasksList = () => {
               </StyledLink>
             </ListText>
             <ListButton
-              rename
+              currentlyRename
               onClick={() => dispatch(renameTask(task.id))}
               title="edytuj zadanie"
             >

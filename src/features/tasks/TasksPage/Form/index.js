@@ -19,7 +19,7 @@ export const Form = () => {
       addTask({
         content: newTaskContent,
         done: false,
-        rename: false,
+        currentlyRename: false,
         id: nanoid(),
       })
     );
