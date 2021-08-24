@@ -8,7 +8,7 @@ import { ListButton } from "../TasksListButtons";
 export const TaskRename = ({ task }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
   const dispatch = useDispatch();
-  const inputFocus = useRef([]);
+  const inputFocus = useRef();
 
   useEffect(() => {
     if (inputFocus.current) {
