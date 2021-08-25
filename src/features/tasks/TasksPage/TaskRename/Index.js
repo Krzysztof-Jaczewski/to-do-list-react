@@ -1,20 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { cancelRenameTask, acceptRenameTask } from "../../tasksSlice";
 import { TextRenameForm } from "./styled";
 import { Input } from "../../../../common/Input";
 import { ListButton } from "../TasksListButtons";
 
-export const TaskRename = ({ task }) => {
+export const TaskRename = ({ task, inputFocus }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
   const dispatch = useDispatch();
-  const inputFocus = useRef();
-
-  useEffect(() => {
-    if (inputFocus.current) {
-      inputFocus.current.focus();
-    }
-  });
 
   const onFormSubmit = (event) => {
     event.preventDefault();
