@@ -9,6 +9,7 @@ export const TaskRename = ({ task }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
   const dispatch = useDispatch();
   const inputFocus = useRef();
+  console.log(newTaskContent);
 
   useEffect(() => {
     if (inputFocus.current) {
@@ -28,8 +29,7 @@ export const TaskRename = ({ task }) => {
         ref={(element) => {
           inputFocus.current = element;
         }}
-        type="text"
-        placeholder=""
+        onFocus={() => setNewTaskContent("")}
         onChange={({ target }) => setNewTaskContent(target.value)}
       />
       <ListButton
