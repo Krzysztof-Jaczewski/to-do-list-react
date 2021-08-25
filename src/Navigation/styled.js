@@ -24,7 +24,7 @@ export const List = styled.ul`
   justify-content: center;
   width: 100%;
   grid-gap: 15px;
-  background-color: teal;
+  background-color: ${({ theme }) => theme.colors.mainColor};
   padding: 10px;
 `;
 

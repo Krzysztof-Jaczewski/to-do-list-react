@@ -4,7 +4,7 @@ export const ListButton = styled.button`
   width: 30px;
   height: 30px;
   padding: 0;
-  background-color: hsl(120, 100%, 25%);
+  background-color: ${({ theme }) => theme.colors.completeTaskButton};
   cursor: pointer;
   color: white;
   border: none;
@@ -22,7 +22,7 @@ export const ListButton = styled.button`
   ${({ remove }) =>
     remove &&
     css`
-      background-color: hsl(357, 95%, 40%);
+      background-color: ${({ theme }) => theme.colors.cancelButton};
 
       &:hover {
         filter: ${({ theme }) => theme.filter.hover};
@@ -37,7 +37,7 @@ export const ListButton = styled.button`
   ${({ currentlyRename }) =>
     currentlyRename &&
     css`
-      background-color: hsl(200, 95%, 40%);
+      background-color: ${({ theme }) => theme.colors.renameButton};
 
       &:hover {
         filter: ${({ theme }) => theme.filter.hover};

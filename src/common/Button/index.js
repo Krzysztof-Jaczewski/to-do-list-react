@@ -10,11 +10,10 @@ export const AdditionalButtons = styled.div`
   }
 `;
 
-
 export const Button = styled.button`
   border: none;
   background-color: white;
-  color: hsl(180, 100%, 25%);
+  color: ${({ theme }) => theme.colors.mainColor};
   transition: color 0.5s linear;
 
   &:disabled {
