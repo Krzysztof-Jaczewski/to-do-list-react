@@ -12,7 +12,6 @@ import { useQueryParameter } from "../../queryParameters";
 import { searchQueryParameter } from "../../searchQueryParameter";
 import { toTask } from "../../../../rutes";
 import { ListButton } from "../TasksListButtons";
-import { useRef, useEffect } from "react";
 
 export const TasksList = () => {
   const query = useQueryParameter(searchQueryParameter);
@@ -20,20 +19,6 @@ export const TasksList = () => {
   const hideDone = useSelector(selectHideDone);
 
   const dispatch = useDispatch();
-
-  const inputFocus = useRef();
-  console.log(inputFocus);
-
-  useEffect(() => {
-    if (inputFocus.current) {
-      console.log(inputFocus.current);
-      inputFocus.current.focus();
-    }
-  });
-
-  const setFocus = () => {
-    inputFocus.current.focus();
-  };
 
   return (
     <List>
@@ -50,10 +35,7 @@ export const TasksList = () => {
             </ListText>
             <ListButton
               currentlyRename
-              onClick={() => {
-                dispatch(renameTask(task.id));
-                setFocus();
-              }}
+              onClick={() => dispatch(renameTask(task.id))}
               title="edytuj zadanie"
             >
               🖊️
@@ -66,7 +48,7 @@ export const TasksList = () => {
               🗑
             </ListButton>
           </Item>
-          <TaskRename task={task} inputFocus={inputFocus} />
+          <TaskRename task={task} />
         </li>
       ))}
     </List>
