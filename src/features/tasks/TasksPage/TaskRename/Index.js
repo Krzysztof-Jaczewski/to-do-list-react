@@ -12,9 +12,7 @@ export const TaskRename = ({ task }) => {
   console.log(newTaskContent);
 
   useEffect(() => {
-    if (inputFocus.current) {
-      inputFocus.current.focus();
-    }
+    inputFocus.current.focus();
   }, [task.currentlyRename]);
 
   const onFormSubmit = (event) => {
