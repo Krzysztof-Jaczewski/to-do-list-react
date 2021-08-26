@@ -1,4 +1,4 @@
-import { toAuthor, toTasks } from "../rutes";
+import { toAuthor, toTasks } from "../routes";
 import { Item, List, StyledNavlink } from "./styled";
 
 export const Navigation = () => (
