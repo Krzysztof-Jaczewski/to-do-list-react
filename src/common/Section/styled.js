@@ -11,7 +11,6 @@ export const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 1fr auto;
   padding: 20px;
-  grid-gap: 20px;
   background-color: white;
 
   @media (max-width: ${({ theme }) => theme.size.mobile}) {

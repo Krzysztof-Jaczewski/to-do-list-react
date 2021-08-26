@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const AdditionalButtons = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 20px;
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   @media (max-width: ${({ theme }) => theme.size.mobile}) {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 `;
 
@@ -15,6 +14,7 @@ export const Button = styled.button`
   background-color: white;
   color: ${({ theme }) => theme.colors.mainColor};
   transition: color 0.5s linear;
+  margin: 0 0 0 10px;
 
   &:disabled {
     color: #ddd;
@@ -27,5 +27,8 @@ export const Button = styled.button`
 
   &:active {
     filter: ${({ theme }) => theme.filter.active};
+  }
+  @media (max-width: ${({ theme }) => theme.size.mobile}) {
+    margin: 15px 0 0 0;
   }
 `;

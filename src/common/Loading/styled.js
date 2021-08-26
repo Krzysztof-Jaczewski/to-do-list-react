@@ -5,9 +5,9 @@ export const Loader = styled.p`
   text-transform: uppercase;
   text-align: center;
   font-size: 1.4em;
-  font-weight: 600;
+  font-weight: 700;
   transform: scale(0.5);
-  color: #121212;
+  color: ${({ theme }) => theme.colors.mainColor};
 
   &:nth-child(1) {
     animation: hover 1s linear infinite;
@@ -40,22 +40,14 @@ export const Loader = styled.p`
   @keyframes hover {
     0% {
       transform: scale(0.5);
-      color: #121212;
-      -webkit-text-stroke: 2px gray;
+      -webkit-text-stroke: 1px ${({ theme }) => theme.colors.mainColor};
     }
-
     20% {
       transform: scale(1);
-      color: pink;
-      -webkit-text-stroke: 3px red;
-      filter: drop-shadow(0 0 1px black) drop-shadow(0 0 1px black)
-        drop-shadow(0 0 3px red) drop-shadow(0 0 5px red) hue-rotate(10turn);
+      -webkit-text-stroke: 4px ${({ theme }) => theme.colors.mainColor};
     }
-
     50% {
       transform: scale(0.5);
-      color: #121212;
-      -webkit-text-stroke: 2px gray;
     }
   }
 `;
