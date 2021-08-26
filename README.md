@@ -21,7 +21,7 @@ Basic to do list, you can add and remove tasks in easy way, aplication works wel
 
 Input text to frame and click on button to add new taks, after this frame will reser and focus on it Gentle hover effects and transitions on buttons improve user expirience.
 
-<img src="src/readme/addingTasks.gif" alt="addingTasks" width="600px" >
+<img src="readme/gifs/addingTasks.gif" alt="addingTasks" width="600px" >
 
 ## :heavy_check_mark: Task list
 
@@ -31,13 +31,13 @@ Tasks can be hide that are complited or show them with just one click
 
 By clicking this button you can imidietly finish all tasks, and button will be disabled, it will become active again when you add another taks, or mark some task as undone, the buttons will disappear if there are no tasks on list
 
-<img src="src/readme/taskListButtons.gif" alt="taskListButtons" width="600px" >
+<img src="readme/gifs/taskListButtons.gif" alt="taskListButtons" width="600px" >
 
 ## :black_nib: Rename task
 
 Additional blue button that can rename single tasks content, this functionality can be used onle on one task at a time
 
-<img src="src/readme/taskRename.gif" alt="taskRename" width="600px" >
+<img src="readme/gifs/taskRename.gif" alt="taskRename" width="600px" >
 
 ## :slot_machine: Example tasks.
 
@@ -45,31 +45,31 @@ You can load a example tasks into tasks list to try, how it works,
 !!!Worning!!!
 if you click this button other tasks will be deleted
 
-<img src="src/readme/exampleButton.gif" alt="exampleTasks" width="600px" >
+<img src="readme/gifs/exampleButton.gif" alt="exampleTasks" width="600px" >
 
 ## :heavy_check_mark: Task page
 
 Every task can be clicked, thet will redirect you to that specify task page, where you can see it`s content and status
 
-<img src="src/readme/singleTask.gif" alt="taskPage" width="600px" >
+<img src="readme/gifs/singleTask.gif" alt="taskPage" width="600px" >
 
 ## :mag: Search
 
 Tasks can be filtered by the characters that will be displayed in the search engine
 
-<img src="src/readme/filterTasks.gif" alt="authorPage" width="600px" >
+<img src="readme/gifs/filterTasks.gif" alt="authorPage" width="600px" >
 
 ## :trophy: Author page
 
 Addictional page that contains some informations about me, feel free to look
 
-<img src="src/readme/authorPage.gif" alt="AuthorPage" width="600px" >
+<img src="readme/gifs/authorPage.gif" alt="AuthorPage" width="600px" >
 
 ## :lock: Local storage
 
 Tasks are storage in localStorage in browser so they don`t disapear even when you refresh page
 
-<img src="src/readme/localStorage.gif" alt="localStorage" width="600px" >
+<img src="readme/gifs/localStorage.gif" alt="localStorage" width="600px" >
 
 ## :gear: Used Technologies
 
