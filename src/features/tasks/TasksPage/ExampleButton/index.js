@@ -10,7 +10,7 @@ export const ExampleButton = () => {
   return (
     <AdditionalButtons>
       <Button onClick={() => dispatch(axiosExampleTasks())}>
-        {loading ? <Loading /> : "pokaż przykładowe zadania"}
+        {loading ? <Loading /> : "Pokaż przykładowe zadania"}
       </Button>
     </AdditionalButtons>
   );

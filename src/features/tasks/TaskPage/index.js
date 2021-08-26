@@ -3,10 +3,10 @@ import { Main } from "../../../common/Main";
 import { Section } from "../../../common/Section";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
-import { getTasksById } from "../tasksSlice";
+import { getTaskById } from "../tasksSlice";
 export const TaskPage = () => {
   const { id } = useParams();
-  const task = useSelector((state) => getTasksById(state, id));
+  const task = useSelector((state) => getTaskById(state, id));
 
   return (
     <>
