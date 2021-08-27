@@ -55,7 +55,7 @@ export const StyledLink = styled(Link)`
       hsl(200, 95%, 40%)
     );
     transition: transform 0.5s ease;
-    height: 1.9em;
+    height: 100%;
   }
   &:hover::before {
     transform: scaleX(1);
