@@ -9,7 +9,10 @@ export const ListButton = styled.button`
   color: white;
   border: none;
   transition: background 0.5s linear;
-
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgba(30, 30, 30, 0.5),
+    -2px -2px 3px rgba(230, 230, 230, 0.7), inset 2px 2px 3px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 3px rgba(230, 230, 230, 0.7);
   &:hover {
     filter: ${({ theme }) => theme.filter.hover};
   }

@@ -16,6 +16,10 @@ export const Button = styled.button`
   padding: 10px;
   border: none;
   transition: background 0.5s linear, transform 0.5s linear;
+  border-radius: 30px;
+  box-shadow: 2px 2px 3px rgba(30, 30, 30, 0.5),
+    -2px -2px 3px rgba(230, 230, 230, 0.7), inset 2px 2px 3px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 3px rgba(230, 230, 230, 0.7);
 
   &:hover {
     filter: ${({ theme }) => theme.filter.hover};
