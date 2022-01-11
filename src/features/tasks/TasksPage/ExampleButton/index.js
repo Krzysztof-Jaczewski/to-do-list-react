@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AdditionalButtons, Button } from "../../../../common/Button";
-import { axiosExampleTasks, selectLoading } from "../../tasksSlice";
+import { fetchExampleTasks, selectLoading } from "../../tasksSlice";
 import { Loading } from "../../../../common/Loading";
 
 export const ExampleButton = () => {
@@ -9,7 +9,7 @@ export const ExampleButton = () => {
 
   return (
     <AdditionalButtons>
-      <Button onClick={() => dispatch(axiosExampleTasks())}>
+      <Button onClick={() => dispatch(fetchExampleTasks())}>
         {loading ? <Loading /> : "Pokaż przykładowe zadania"}
       </Button>
     </AdditionalButtons>

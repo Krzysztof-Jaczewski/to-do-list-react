@@ -9,19 +9,19 @@ import {
 import { getExampleTasks } from "./getExampleTasks";
 import { saveTasksInLocalStorage } from "./tasksLocalStorage";
 import {
-  axiosExampleTasks,
-  axiosExampleTasksError,
-  axiosExampleTasksSuccess,
+  fetchExampleTasks,
+  fetchExampleTasksError,
+  fetchExampleTasksSuccess,
   selectTasks,
 } from "./tasksSlice";
 
-function* axiosExampleTasksSaga() {
+function* fetchExampleTasksSaga() {
   try {
     yield delay(2000);
     const exampleTasks = yield call(getExampleTasks);
-    yield put(axiosExampleTasksSuccess(exampleTasks));
+    yield put(fetchExampleTasksSuccess(exampleTasks));
   } catch (error) {
-    yield put(axiosExampleTasksError());
+    yield put(fetchExampleTasksError());
     yield call(alert, "coś poszło nie tak!");
   }
 }
@@ -32,6 +32,6 @@ function* saveTasksInLocalStorageSaga() {
 }
 
 export function* tasksSaga() {
-  yield takeLatest(axiosExampleTasks.type, axiosExampleTasksSaga);
+  yield takeLatest(fetchExampleTasks.type, fetchExampleTasksSaga);
   yield takeEvery("*", saveTasksInLocalStorageSaga);
 }
