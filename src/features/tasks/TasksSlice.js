@@ -13,7 +13,9 @@ const tasksSlice = createSlice({
       tasks.push(payload);
     },
     toggleTaskDone: ({ tasks }, { payload: selectedTaskId }) => {
-      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
+      const index = tasks.findIndex(
+        ({ id }) => id === selectedTaskId
+      );
       tasks[index].done = !tasks[index].done;
     },
     setAllTasksDone: ({ tasks }) => {
@@ -22,11 +24,15 @@ const tasksSlice = createSlice({
       });
     },
     removeTask: ({ tasks }, { payload: selectedTaskId }) => {
-      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
+      const index = tasks.findIndex(
+        ({ id }) => id === selectedTaskId
+      );
       tasks.splice(index, 1);
     },
     renameTask: ({ tasks }, { payload: selectedTaskId }) => {
-      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
+      const index = tasks.findIndex(
+        ({ id }) => id === selectedTaskId
+      );
       tasks.forEach((task) => {
         task.currentlyRename = false;
       });
@@ -34,24 +40,28 @@ const tasksSlice = createSlice({
       tasks[index].done = false;
     },
     cancelRenameTask: ({ tasks }, { payload: selectedTaskId }) => {
-      const index = tasks.findIndex(({ id }) => id === selectedTaskId);
+      const index = tasks.findIndex(
+        ({ id }) => id === selectedTaskId
+      );
       tasks[index].currentlyRename = false;
     },
     acceptRenameTask: ({ tasks }, { payload: renamedTask }) => {
-      const index = tasks.findIndex(({ id }) => id === renamedTask.id);
+      const index = tasks.findIndex(
+        ({ id }) => id === renamedTask.id
+      );
       tasks.splice(index, 1, renamedTask);
     },
     toggleHideDone: (state) => {
       state.hideDone = !state.hideDone;
     },
-    axiosExampleTasks: (state) => {
+    fetchExampleTasks: (state) => {
       state.loading = true;
     },
-    axiosExampleTasksSuccess: (state, { payload: exampleTasks }) => {
+    fetchExampleTasksSuccess: (state, { payload: exampleTasks }) => {
       state.tasks = exampleTasks;
       state.loading = false;
     },
-    axiosExampleTasksError: (state) => {
+    fetchExampleTasksError: (state) => {
       state.loading = false;
     },
   },
@@ -66,18 +76,21 @@ export const {
   renameTask,
   cancelRenameTask,
   acceptRenameTask,
-  axiosExampleTasks,
-  axiosExampleTasksSuccess,
-  axiosExampleTasksError,
+  fetchExampleTasks,
+  fetchExampleTasksSuccess,
+  fetchExampleTasksError,
 } = tasksSlice.actions;
 export const selectTasksState = (state) => state.tasks;
 
 export const selectTasks = (state) => selectTasksState(state).tasks;
-export const selectHideDone = (state) => selectTasksState(state).hideDone;
-export const selectLoading = (state) => selectTasksState(state).loading;
+export const selectHideDone = (state) =>
+  selectTasksState(state).hideDone;
+export const selectLoading = (state) =>
+  selectTasksState(state).loading;
 export const selectIsEveryTaskDone = (state) =>
   selectTasks(state).every(({ done }) => done);
-export const selectAreTasksEmpty = (state) => selectTasks(state).length === 0;
+export const selectAreTasksEmpty = (state) =>
+  selectTasks(state).length === 0;
 
 export const getTaskById = (state, taskId) =>
   selectTasks(state).find(({ id }) => id === taskId);
