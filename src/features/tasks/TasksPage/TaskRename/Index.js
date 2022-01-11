@@ -9,7 +9,6 @@ export const TaskRename = ({ task }) => {
   const [newTaskContent, setNewTaskContent] = useState("");
   const dispatch = useDispatch();
   const inputFocus = useRef();
-  console.log(newTaskContent);
 
   useEffect(() => {
     inputFocus.current.focus();
@@ -21,7 +20,10 @@ export const TaskRename = ({ task }) => {
   };
 
   return (
-    <TextRenameForm hide={!task.currentlyRename} onSubmit={onFormSubmit}>
+    <TextRenameForm
+      hide={!task.currentlyRename}
+      onSubmit={onFormSubmit}
+    >
       <Input
         value={newTaskContent}
         ref={(element) => {
@@ -34,7 +36,8 @@ export const TaskRename = ({ task }) => {
         type="submit"
         title="Zatwierdź zmianę"
         onClick={() => {
-          if (newTaskContent === "") dispatch(cancelRenameTask(task.id));
+          if (newTaskContent === "")
+            dispatch(cancelRenameTask(task.id));
           else
             dispatch(
               acceptRenameTask({
