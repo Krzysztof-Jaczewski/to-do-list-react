@@ -1,4 +1,4 @@
-# toDoList
+# to-do-list
 
 ## :computer: Demonstration - link below
 
