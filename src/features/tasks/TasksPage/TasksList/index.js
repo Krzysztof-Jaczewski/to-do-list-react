@@ -15,7 +15,9 @@ import { ListButton } from "../TasksListButtons";
 
 export const TasksList = () => {
   const query = useQueryParameter(searchQueryParameter);
-  const tasks = useSelector((state) => selectTasksByQuery(state, query));
+  const tasks = useSelector((state) =>
+    selectTasksByQuery(state, query)
+  );
   const hideDone = useSelector(selectHideDone);
 
   const dispatch = useDispatch();
@@ -24,11 +26,18 @@ export const TasksList = () => {
     <List>
       {tasks.map((task) => (
         <li key={task.id}>
-          <Item hide={(task.done && hideDone) || task.currentlyRename}>
-            <ListButton onClick={() => dispatch(toggleTaskDone(task.id))}>
+          <Item
+            hide={(task.done && hideDone) || task.currentlyRename}
+          >
+            <ListButton
+              onClick={() => dispatch(toggleTaskDone(task.id))}
+            >
               {task.done ? "✔" : ""}
             </ListButton>
-            <StyledLink done={task.done} to={toTask({ id: task.id })}>
+            <StyledLink
+              $isDone={task.done}
+              to={toTask({ id: task.id })}
+            >
               {task.content}
             </StyledLink>
             <ListButton

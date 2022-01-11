@@ -30,15 +30,18 @@ export const StyledLink = styled(Link)`
   word-break: break-word;
   background-color: transparent;
   cursor: pointer;
-  ${({ done }) =>
-    done &&
+
+  ${({ $isDone }) =>
+    $isDone &&
     css`
       text-decoration: line-through;
     `}
+
   &:hover {
     z-index: 1;
     color: white;
   }
+
   &::before {
     content: "";
     display: block;
@@ -57,6 +60,7 @@ export const StyledLink = styled(Link)`
     transition: transform 0.5s ease;
     height: 100%;
   }
+
   &:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
