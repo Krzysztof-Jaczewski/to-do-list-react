@@ -2,7 +2,7 @@
   "name": "todo-list-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://krzysztof-jaczewski.github.io/toDoList-react/",
+  "homepage": "https://krzysztof-jaczewski.github.io/to-do-list-react/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^5.12.0",
