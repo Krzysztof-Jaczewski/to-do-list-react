@@ -1,20 +1,20 @@
 [
-  {
-    "content": "Zmień tekst tego zadania",
-    "done": false,
-    "currentlyRename": false,
-    "id": "Q7G_IRpq_kK1xz3at7JpB"
-  },
-  {
-    "content": "Użyj filtra do przeszukiwania zadań",
-    "done": false,
-    "currentlyRename": false,
-    "id": "5B-tPUfoC272lXVLaA0hT"
-  },
-  {
-    "content": "Odwiedź stronę autora",
-    "done": false,
-    "currentlyRename": false,
-    "id": "5B-tPUfoC272lXVLaA0h2"
-  }
+    {
+        "content": "Zmień tekst tego zadania",
+        "isDone": false,
+        "isCurrentlyRename": false,
+        "id": "Q7G_IRpq_kK1xz3at7JpB"
+    },
+    {
+        "content": "Użyj filtra do przeszukiwania zadań",
+        "isDone": false,
+        "isCurrentlyRename": false,
+        "id": "5B-tPUfoC272lXVLaA0hT"
+    },
+    {
+        "content": "Odwiedź stronę autora",
+        "isDone": false,
+        "isCurrentlyRename": false,
+        "id": "5B-tPUfoC272lXVLaA0h2"
+    }
 ]

@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import { theme } from 'src/theme';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 html {
@@ -16,7 +17,7 @@ button {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: ${({ theme }) => theme.colors.backgroundColor};
+  background-color: ${theme.colors.backgroundColor};
 }
 
 `;
