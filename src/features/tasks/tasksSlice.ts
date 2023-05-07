@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getTasksFromLocalStorage } from './tasksLocalStorage';
+import { RootState } from 'src/store';
 
 const tasksSlice = createSlice({
     name: 'tasks',
@@ -71,19 +72,22 @@ export const {
     fetchExampleTasksSuccess,
     fetchExampleTasksError,
 } = tasksSlice.actions;
-export const selectTasksState = (state) => state.tasks;
+export const selectTasksState = (state: RootState) => state.tasks;
 
-export const selectTasks = (state) => selectTasksState(state).tasks;
-export const selectHideDone = (state) => selectTasksState(state).hideDone;
-export const selectLoading = (state) => selectTasksState(state).isLoading;
-export const selectIsEveryTaskDone = (state) =>
+export const selectTasks = (state: RootState) => selectTasksState(state).tasks;
+export const selectHideDone = (state: RootState) =>
+    selectTasksState(state).hideDone;
+export const selectLoading = (state: RootState) =>
+    selectTasksState(state).isLoading;
+export const selectIsEveryTaskDone = (state: RootState) =>
     selectTasks(state).every(({ isDone }) => isDone);
-export const selectAreTasksEmpty = (state) => selectTasks(state).length === 0;
+export const selectAreTasksEmpty = (state: RootState) =>
+    selectTasks(state).length === 0;
 
-export const getTaskById = (state, taskId) =>
+export const getTaskById = (state: RootState, taskId: string) =>
     selectTasks(state).find(({ id }) => id === taskId);
 
-export const selectTasksByQuery = (state, query) => {
+export const selectTasksByQuery = (state: RootState, query?: string | null) => {
     const tasks = selectTasks(state);
     if (!query || query.trim() === '') {
         return tasks;

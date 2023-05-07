@@ -14,19 +14,20 @@ import {
     fetchExampleTasksSuccess,
     selectTasks,
 } from './tasksSlice';
+import { TaskType } from 'src/ts/types';
 
-function* fetchExampleTasksSaga() {
+function* fetchExampleTasksSaga(): Generator<any, void, TaskType[]> {
     try {
         yield delay(2000);
         const exampleTasks = yield call(getExampleTasks);
         yield put(fetchExampleTasksSuccess(exampleTasks));
     } catch (error) {
         yield put(fetchExampleTasksError());
-        yield call(alert, 'coś poszło nie tak!');
+        yield call(alert, 'Something went wrong!');
     }
 }
 
-function* saveTasksInLocalStorageSaga() {
+function* saveTasksInLocalStorageSaga(): Generator<any, void, TaskType[]> {
     const tasks = yield select(selectTasks);
     yield call(saveTasksInLocalStorage, tasks);
 }

@@ -4,6 +4,7 @@ import { Section } from '../../../common/Section';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { getTaskById } from '../tasksSlice';
+import { RootState } from 'src/store';
 
 type taskParams = {
     id: string;
@@ -11,7 +12,7 @@ type taskParams = {
 
 export const TaskPage = () => {
     const { id } = useParams<taskParams>();
-    const task = useSelector((state) => getTaskById(state, id));
+    const task = useSelector((state: RootState) => getTaskById(state, id));
 
     return (
         <>

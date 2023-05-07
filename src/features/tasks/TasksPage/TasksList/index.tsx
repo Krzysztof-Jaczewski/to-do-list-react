@@ -13,10 +13,11 @@ import { searchQueryParameter } from '../../searchQueryParameter';
 import { toTask } from '../../../../routes';
 import { ListButton } from '../TasksListButtons';
 import { TaskType } from 'src/ts/types';
+import { RootState } from 'src/store';
 
 export const TasksList = () => {
     const query = useQueryParameter(searchQueryParameter);
-    const tasks = useSelector((state) =>
+    const tasks = useSelector((state: RootState) =>
         selectTasksByQuery(state, query)
     ) as TaskType[];
     const hideDone = useSelector(selectHideDone);
