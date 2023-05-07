@@ -25,48 +25,42 @@ export const TasksList = () => {
 
     return (
         <List>
-            {tasks.map((task) => {
-                console.log('TCL: TasksList -> task', task);
-                return (
-                    <li key={task.id}>
-                        <Item
-                            isHide={
-                                (task.isDone && hideDone) ||
-                                task.isCurrentlyRename
-                            }
+            {tasks.map((task) => (
+                <li key={task.id}>
+                    <Item
+                        isHide={
+                            (task.isDone && hideDone) || task.isCurrentlyRename
+                        }
+                    >
+                        <ListButton
+                            onClick={() => dispatch(toggleTaskDone(task.id))}
                         >
-                            <ListButton
-                                onClick={() =>
-                                    dispatch(toggleTaskDone(task.id))
-                                }
-                            >
-                                {task.isDone ? '✔' : ''}
-                            </ListButton>
-                            <StyledLink
-                                $isDone={task.isDone}
-                                to={toTask({ id: task.id })}
-                            >
-                                {task.content}
-                            </StyledLink>
-                            <ListButton
-                                isCurrentlyRename
-                                onClick={() => dispatch(renameTask(task.id))}
-                                title='edytuj zadanie'
-                            >
-                                🖊️
-                            </ListButton>
-                            <ListButton
-                                remove
-                                onClick={() => dispatch(removeTask(task.id))}
-                                title='usuń zadanie'
-                            >
-                                🗑
-                            </ListButton>
-                        </Item>
-                        <TaskRename task={task} />
-                    </li>
-                );
-            })}
+                            {task.isDone ? '✔' : ''}
+                        </ListButton>
+                        <StyledLink
+                            $isDone={task.isDone}
+                            to={toTask({ id: task.id })}
+                        >
+                            {task.content}
+                        </StyledLink>
+                        <ListButton
+                            isCurrentlyRename
+                            onClick={() => dispatch(renameTask(task.id))}
+                            title='edytuj zadanie'
+                        >
+                            🖊️
+                        </ListButton>
+                        <ListButton
+                            remove
+                            onClick={() => dispatch(removeTask(task.id))}
+                            title='usuń zadanie'
+                        >
+                            🗑
+                        </ListButton>
+                    </Item>
+                    <TaskRename task={task} />
+                </li>
+            ))}
         </List>
     );
 };
