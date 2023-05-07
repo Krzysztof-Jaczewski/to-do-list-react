@@ -32,7 +32,7 @@ export const TaskRename = ({ task }: Props) => {
             <Input
                 value={newTaskContent}
                 ref={inputFocus}
-                onFocus={() => setNewTaskContent('')}
+                onFocus={() => setNewTaskContent(task.content)}
                 onChange={({ target }) => setNewTaskContent(target.value)}
             />
             <ListButton
